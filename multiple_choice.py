@@ -293,11 +293,11 @@ def get_model_answer_multiple_options(question, options, model, dstype) -> str:
             },
             {
                 "role": "user",
-                "content": "Question:\nŞagirdlər sinifdəki bir tankda bəzi cırtdan saxlayırdılar. Tank gündə bir neçə saat günəş işığı alacaq bir ərazidə saxlanıldı. Tankın bir hissəsində su, digər hissəsində isə bitkilərin böyüdüyü torpaq var idi.. Cırtdanlar bütün enerjisini haradan alırdılar?\nOptions:\nA) torpaq,\nB) su,\nC) bitkilər,\nD) günəş işığı\n\nAnswer:"
+                "content": "Question:\nHansı material ən yaxşı istilik izolyatorudur?\nOptions:\nA) şüşə,\nB) metal,\nC) su,\nD) ağac\n\nAnswer:"
             },
             {
                 "role": "assistant",
-                "content": "C"
+                "content": "D"
             },
             {
                 "role": "user",
