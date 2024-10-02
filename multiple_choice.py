@@ -67,6 +67,24 @@ def get_model_answer_multiple_options(question, options, model, dstype) -> str:
             },
             {
                 "role": "user",
+                "content": "Question:\nNə qədər vaxt tələb olunur ki, nağd pul çıxarışı görünsün?\nOptions:\nA) ATM,\nB) FEES,\nC) OTHER,\nD) CARD,\nE) ACCOUNT,\nF) TRANSFER,\nG) PASSWORD,\nH) LOAN,\nI) CONTACT,\nJ) FIND\n\nAnswer:"
+                # "content": "Question:\nNə qədər vaxt tələb olunur ki, nağd pul çıxarışı görünsün?\nOptions:\nA) BANKOMAT, B) KOMİSSİYA, C) DİGƏR, D) KART, E) HESAB, F) KÖÇÜRMƏ, G) ŞİFRƏ, H) KREDİT, I) ƏLAQƏ, J) TAP\n\nAnswer:" # Reshad's updated version
+            },
+            {
+                "role": "assistant",
+                "content": "A"
+            },
+            {
+                "role": "user",
+                "content": "Question:\nSalam, bu gün kripto ilə balans artırmağa çalışdım, amma alınmadı. Ola bilərmi ki, istifadə etdiyim bankın növü və ya mənim olduğum ölkə ilə əlaqədardır? Hesabımdan da pul çıxıb.\nOptions:\nA) ATM,\nB) FEES,\nC) OTHER,\nD) CARD,\nE) ACCOUNT,\nF) TRANSFER,\nG) PASSWORD,\nH) LOAN,\nI) CONTACT,\nJ) FIND\n\nAnswer:"
+                # "content": "Question:\nSalam, bu gün kripto ilə balans artırmağa çalışdım, amma alınmadı. Ola bilərmi ki, istifadə etdiyim bankın növü və ya mənim olduğum ölkə ilə əlaqədardır? Hesabımdan da pul çıxıb.\nOptions:\nA) BANKOMAT, B) KOMİSSİYA, C) DİGƏR, D) KART, E) HESAB, F) KÖÇÜRMƏ, G) ŞİFRƏ, H) KREDİT, I) ƏLAQƏ, J) TAP\n\nAnswer:"    # Reshad's updated version
+            },
+            {
+                "role": "assistant",
+                "content": "E"
+            },
+            {
+                "role": "user",
                 "content": f"Question:\n{question}\nOptions:\n{options}"
             }
         ]
@@ -81,9 +99,8 @@ def get_model_answer_multiple_options(question, options, model, dstype) -> str:
         #     },
         #    {
         #         "role": "user",
-        #         "content": "Question:\nMənə yaxın filial tapmağa kömək edin.\nOptions:\nA) ATM,\nB) FEES,\nC) OTHER,\nD) CARD,\nE) ACCOUNT,\nF) TRANSFER,\nG) PASSWORD,\nH) LOAN,\nI) CONTACT,\nJ) FIND\n\nAnswer:"
-        #         # "content": "Question:\nMənə yaxın filial tapmağa kömək edin.\nOptions:\nA) BANKOMAT, B) KOMİSSİYA, C) DİGƏR, D) KART, E) HESAB, F) KÖÇÜRMƏ, G) ŞİFRƏ, H) KREDİT, I) ƏLAQƏ, J) TAP\n\nAnswer:"   # Reshad's updated data
-
+        #         "content": "Sual:\nMənə yaxın filial tapmağa kömək edin.\nSeçimlər:\nA) ATM,\nB) FEES,\nC) OTHER,\nD) CARD,\nE) ACCOUNT,\nF) TRANSFER,\nG) PASSWORD,\nH) LOAN,\nI) CONTACT,\nJ) FIND\n\nCavab:"
+        #         # "content": "Sual:\nMənə yaxın filial tapmağa kömək edin.\nSeçimlər:\nA) BANKOMAT, B) KOMİSSİYA, C) DİGƏR, D) KART, E) HESAB, F) KÖÇÜRMƏ, G) ŞİFRƏ, H) KREDİT, I) ƏLAQƏ, J) TAP\n\nCavab:"   # Reshad's updated data
         #     },
         #     {
         #         "role": "assistant",
@@ -91,8 +108,8 @@ def get_model_answer_multiple_options(question, options, model, dstype) -> str:
         #     },
         #     {
         #         "role": "user",
-        #         "content": "Question:\nŞifrə təyin etməliyəm, bunu necə edə bilərəm?\nOptions:\nA) ATM,\nB) FEES,\nC) OTHER,\nD) CARD,\nE) ACCOUNT,\nF) TRANSFER,\nG) PASSWORD,\nH) LOAN,\nI) CONTACT,\nJ) FIND\n\nAnswer:"
-        #         # "content": "Question:\nŞifrə təyin etməliyəm, bunu necə edə bilərəm?\nOptions:\nA) BANKOMAT, B) KOMİSSİYA, C) DİGƏR, D) KART, E) HESAB, F) KÖÇÜRMƏ, G) ŞİFRƏ, H) KREDİT, I) ƏLAQƏ, J) TAP\n\nAnswer:"   # Reshad's updated data
+        #         "content": "Sual:\nŞifrə təyin etməliyəm, bunu necə edə bilərəm?\nSeçimlər:\nA) ATM,\nB) FEES,\nC) OTHER,\nD) CARD,\nE) ACCOUNT,\nF) TRANSFER,\nG) PASSWORD,\nH) LOAN,\nI) CONTACT,\nJ) FIND\n\nCavab:"
+        #         # "content": "Sual:\nŞifrə təyin etməliyəm, bunu necə edə bilərəm?\nSeçimlər:\nA) BANKOMAT, B) KOMİSSİYA, C) DİGƏR, D) KART, E) HESAB, F) KÖÇÜRMƏ, G) ŞİFRƏ, H) KREDİT, I) ƏLAQƏ, J) TAP\n\nCavab:"   # Reshad's updated data
         #     },
         #     {
         #         "role": "assistant",
@@ -100,16 +117,34 @@ def get_model_answer_multiple_options(question, options, model, dstype) -> str:
         #     },
         #     {
         #         "role": "user",
-        #         "content": "Question:\nMən virtual kart almaq istəyirəm. Necə əldə edə bilərəm?\nOptions:\nA) ATM,\nB) FEES,\nC) OTHER,\nD) CARD,\nE) ACCOUNT,\nF) TRANSFER,\nG) PASSWORD,\nH) LOAN,\nI) CONTACT,\nJ) FIND\n\nAnswer:"
-        #         # "content": "Question:\nMən virtual kart almaq istəyirəm. Necə əldə edə bilərəm?\nOptions:\nA) BANKOMAT, B) KOMİSSİYA, C) DİGƏR, D) KART, E) HESAB, F) KÖÇÜRMƏ, G) ŞİFRƏ, H) KREDİT, I) ƏLAQƏ, J) TAP\n\nAnswer:"    # Reshad's updated version
+        #         "content": "Sual:\nMən virtual kart almaq istəyirəm. Necə əldə edə bilərəm?\nSeçimlər:\nA) ATM,\nB) FEES,\nC) OTHER,\nD) CARD,\nE) ACCOUNT,\nF) TRANSFER,\nG) PASSWORD,\nH) LOAN,\nI) CONTACT,\nJ) FIND\n\nCavab:"
+        #         # "content": "Sual:\nMən virtual kart almaq istəyirəm. Necə əldə edə bilərəm?\nSeçimlər:\nA) BANKOMAT, B) KOMİSSİYA, C) DİGƏR, D) KART, E) HESAB, F) KÖÇÜRMƏ, G) ŞİFRƏ, H) KREDİT, I) ƏLAQƏ, J) TAP\n\nCavab:"    # Reshad's updated version
         #     },
         #     {
         #         "role": "assistant",
         #         "content": "D"
         #     },
+            # {
+            #     "role": "user",
+            #     "content": "Sual:\nNə qədər vaxt tələb olunur ki, nağd pul çıxarışı görünsün?\nSeçimlər:\nA) ATM,\nB) FEES,\nC) OTHER,\nD) CARD,\nE) ACCOUNT,\nF) TRANSFER,\nG) PASSWORD,\nH) LOAN,\nI) CONTACT,\nJ) FIND\n\nCavab:"
+            #   # "content": "Sual:\nNə qədər vaxt tələb olunur ki, nağd pul çıxarışı görünsün?\nSeçimlər:\nA) BANKOMAT, B) KOMİSSİYA, C) DİGƏR, D) KART, E) HESAB, F) KÖÇÜRMƏ, G) ŞİFRƏ, H) KREDİT, I) ƏLAQƏ, J) TAP\n\nCavab:" # Reshad's updated version
+            # },
+            # {
+            #     "role": "assistant",
+            #     "content": "A"
+            # },
+            # {
+            #     "role": "user",
+            #     "content": "Sual:\nSalam, bu gün kripto ilə balans artırmağa çalışdım, amma alınmadı. Ola bilərmi ki, istifadə etdiyim bankın növü və ya mənim olduğum ölkə ilə əlaqədardır? Hesabımdan da pul çıxıb.\nSeçimlər:\nA) ATM,\nB) FEES,\nC) OTHER,\nD) CARD,\nE) ACCOUNT,\nF) TRANSFER,\nG) PASSWORD,\nH) LOAN,\nI) CONTACT,\nJ) FIND\n\nCavab:"
+            #   # "content": "Sual:\nSalam, bu gün kripto ilə balans artırmağa çalışdım, amma alınmadı. Ola bilərmi ki, istifadə etdiyim bankın növü və ya mənim olduğum ölkə ilə əlaqədardır? Hesabımdan da pul çıxıb.\nSeçimlər:\nA) BANKOMAT, B) KOMİSSİYA, C) DİGƏR, D) KART, E) HESAB, F) KÖÇÜRMƏ, G) ŞİFRƏ, H) KREDİT, I) ƏLAQƏ, J) TAP\n\nCavab:"    # Reshad's updated version
+            # },
+            # {
+            #     "role": "assistant",
+            #     "content": "E"
+            # },
         #     {
         #         "role": "user",
-        #         "content": f"Question:\n{question}\nOptions:\n{options}"
+        #         "content": f"Sual:\n{question}\nSeçimlər:\n{options}"
         #     }
          # ]
 
@@ -157,6 +192,22 @@ def get_model_answer_multiple_options(question, options, model, dstype) -> str:
             },
             {
                 "role": "user",
+                "content": "Question:\nAşağıdakı müddəalardan hansı yalnışdır\nOptions:\nA) tələbələrə kredit verilə bilər, B) borcalan (gəliri muzdlu işlə əlaqədar olan) ən azı son 6 (altı) ay üzrə aylıq gəlirlərini təsdiq edən sənəd təqdim etməlidir, C) təminatlı aktiv - təminatı məqbul təminat olduqda onun bazar dəyəri təmin etdiyi öhdəlik məbləğinin 100 (yüz) faizindən, təminat məqbul təminat olmadıqda isə 150 (yüz əlli) faizindən az olmayan aktiv, D) Məqbul təminat bankın daxili qaydalarına əsasən müəyyən edilir\n\nAnswer:"
+            },
+            {
+                "role": "assistant",
+                "content": "D"
+            },            
+            {
+                "role": "user",
+                "content": "Question:\nVergi orqani ilə aparılan əməliyyatlarda bankların məsuliyyətinə dair qeyd edilənlərdən biri doğru deyil\nOptions:\nA) Banklar hüquqi şəxslərə, onların filial və nümayəndəliklərinə, fərdi sahibkarlara yalnız onlar vergi orqanı tərəfindən verilən şəhadətnamə-dublikatını təqdim etdikdən sonra bank hesabları açırlar. Şəhadətnamə-dublikat alındığı tarixdən 10 gün müddətində hesabın açılması üçün istifadə olunmadıqda qüvvədən düşmüş hesab edilir., B) Vergi borcunun bank hesabinda dondurulması tələbi gəldikdə bank müştərinin milli və ya xarici valyutada cari və ya digər hesablarında borc məbləğinin 105 faizi həcmində pul vəsaiti üzrə məxaric əməliyyatları məhdudlaşdırır, C) Vergi ödəyicisinin milli və ya xarici valyutada cari və ya digər hesablarında vəsait olduqda vergi orqanının alınmalı sərəncamı bank və ya digər kredit təşkilatı tərəfindən 3(üç) gün ərzində icra edilir., D) Sərəncam gəldiyi zaman müştərinin hesabinda vəsait olmadığı və qismən kifayət etdiyi halda sərəncam bankda saxlanılır, vəsait daxil olduqca icra edilir\n\nAnswer:"
+            },
+            {
+                "role": "assistant",
+                "content": "C"
+            },            
+            {
+                "role": "user",
                 "content": f"Question:\n{question}\nOptions:\n{options}"
             }
         ]
@@ -191,6 +242,22 @@ def get_model_answer_multiple_options(question, options, model, dstype) -> str:
         #         "role": "assistant",
         #         "content": "A"
         #     },
+            # {
+            #     "role": "user",
+            #     "content": "Sual:\nAşağıdakı müddəalardan hansı yalnışdır\nSeçimlər:\nA) tələbələrə kredit verilə bilər, B) borcalan (gəliri muzdlu işlə əlaqədar olan) ən azı son 6 (altı) ay üzrə aylıq gəlirlərini təsdiq edən sənəd təqdim etməlidir, C) təminatlı aktiv - təminatı məqbul təminat olduqda onun bazar dəyəri təmin etdiyi öhdəlik məbləğinin 100 (yüz) faizindən, təminat məqbul təminat olmadıqda isə 150 (yüz əlli) faizindən az olmayan aktiv, D) Məqbul təminat bankın daxili qaydalarına əsasən müəyyən edilir\n\nCavab:"
+            # },
+            # {
+            #     "role": "assistant",
+            #     "content": "D"
+            # },            
+            # {
+            #     "role": "user",
+            #     "content": "Sual:\nVergi orqani ilə aparılan əməliyyatlarda bankların məsuliyyətinə dair qeyd edilənlərdən biri doğru deyil\nSeçimlər:\nA) Banklar hüquqi şəxslərə, onların filial və nümayəndəliklərinə, fərdi sahibkarlara yalnız onlar vergi orqanı tərəfindən verilən şəhadətnamə-dublikatını təqdim etdikdən sonra bank hesabları açırlar. Şəhadətnamə-dublikat alındığı tarixdən 10 gün müddətində hesabın açılması üçün istifadə olunmadıqda qüvvədən düşmüş hesab edilir., B) Vergi borcunun bank hesabinda dondurulması tələbi gəldikdə bank müştərinin milli və ya xarici valyutada cari və ya digər hesablarında borc məbləğinin 105 faizi həcmində pul vəsaiti üzrə məxaric əməliyyatları məhdudlaşdırır, C) Vergi ödəyicisinin milli və ya xarici valyutada cari və ya digər hesablarında vəsait olduqda vergi orqanının alınmalı sərəncamı bank və ya digər kredit təşkilatı tərəfindən 3(üç) gün ərzində icra edilir., D) Sərəncam gəldiyi zaman müştərinin hesabinda vəsait olmadığı və qismən kifayət etdiyi halda sərəncam bankda saxlanılır, vəsait daxil olduqca icra edilir\n\nCavab:"
+            # },
+            # {
+            #     "role": "assistant",
+            #     "content": "C"
+            # },            
         #     {
         #         "role": "user",
         #         "content": f"Sual:\n{question}\nSeçimlər:\n{options}"
@@ -242,6 +309,22 @@ def get_model_answer_multiple_options(question, options, model, dstype) -> str:
             },
             {
                 "role": "user",
+                "content": "Question:\nDDT adlı kimyəvi maddə bir vaxtlar zərərli həşəratları öldürmək üçün istifadə olunurdu. Araşdırmalar bu kimyəvi maddənin bəzi quş növləri üçün zərərli olduğunu göstərdikdə, DDT-nin istifadəsi dayandırıldı. Elmi proses DDT-nin quşlara zərər verdiyini anlamalarına necə kömək edə bildi?\nOptions:\nA) Kimyəvi maddə ilə bağlı müxtəlif proqnozlar verildi,\nB) Kimyəvi maddə ilə aparılan testlər fərqli nəticələr verdi,\nC) Kimyəvi maddə ilə təkrarlanan sınaqlar eyni nəticəyə gəldi,\nD) Kimyəvi maddənin xüsusiyyətlərini yoxlamaq üçün müxtəlif prosedurlardan istifadə edilmişdir\n\nAnswer:"
+            },
+            {
+                "role": "assistant",
+                "content": "C"
+            },
+            {
+                "role": "user",
+                "content": "Question:\nKainatdakı bütün qalaktikalar \nOptions:\nA) çoxlu ulduzlardan ibarətdir,\nB) saatın istiqamətində dönün,\nC) Kimyəvi maddə ilə təkrarlanan sınaqlar eyni nəticəyə gəldi,\nD) eyni sayda ulduz var\n\nAnswer:"
+            },
+            {
+                "role": "assistant",
+                "content": "A"
+            },
+            {
+                "role": "user",
                 "content": f"Question:\n{question}\nOptions:\n{options}"
             }
         ]
@@ -277,6 +360,22 @@ def get_model_answer_multiple_options(question, options, model, dstype) -> str:
         #         "content": "B"
         #     },
         #     {
+        #         "role": "user",
+        #         "content": "Sual:\nDDT adlı kimyəvi maddə bir vaxtlar zərərli həşəratları öldürmək üçün istifadə olunurdu. Araşdırmalar bu kimyəvi maddənin bəzi quş növləri üçün zərərli olduğunu göstərdikdə, DDT-nin istifadəsi dayandırıldı. Elmi proses DDT-nin quşlara zərər verdiyini anlamalarına necə kömək edə bildi?\nSeçimlər:\nA) Kimyəvi maddə ilə bağlı müxtəlif proqnozlar verildi,\nB) Kimyəvi maddə ilə aparılan testlər fərqli nəticələr verdi,\nC) Kimyəvi maddə ilə təkrarlanan sınaqlar eyni nəticəyə gəldi,\nD) Kimyəvi maddənin xüsusiyyətlərini yoxlamaq üçün müxtəlif prosedurlardan istifadə edilmişdir\n\nCavab:"
+        #     },
+        #     {
+        #         "role": "assistant",
+        #         "content": "C"
+        #     },
+        #     {
+        #         "role": "user",
+        #         "content": "Sual:\nKainatdakı bütün qalaktikalar \nSeçimlər:\nA) çoxlu ulduzlardan ibarətdir,\nB) saatın istiqamətində dönün,\nC) Kimyəvi maddə ilə təkrarlanan sınaqlar eyni nəticəyə gəldi,\nD) eyni sayda ulduz var\n\nCavab:"
+        #     },
+        #     {
+        #         "role": "assistant",
+        #         "content": "A"
+        #     },
+        # #     {
         #         "role": "user",
         #         "content": f"Sual:\n{question}\nSeçimlər:\n{options}"
         #     }
